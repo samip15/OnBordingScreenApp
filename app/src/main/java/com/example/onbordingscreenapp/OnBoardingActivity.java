@@ -3,6 +3,7 @@ package com.example.onbordingscreenapp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
@@ -24,7 +25,6 @@ public class OnBoardingActivity extends AppCompatActivity {
     Button letsGetStarted;
     Animation animation;
     int currentPos;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +94,12 @@ public class OnBoardingActivity extends AppCompatActivity {
                 animation = AnimationUtils.loadAnimation(OnBoardingActivity.this, R.anim.bottom_anim);
                 letsGetStarted.setAnimation(animation);
                 letsGetStarted.setVisibility(View.VISIBLE);
+                letsGetStarted.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(OnBoardingActivity.this,MainActivity.class));
+                    }
+                });
             }
 
         }
